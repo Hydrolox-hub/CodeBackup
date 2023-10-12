@@ -1,0 +1,1 @@
+http://192.168.112.252:8080/input?name=Gabriel&id=1&tempval=20&humval=60

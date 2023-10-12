@@ -1,0 +1,1 @@
+from microbit import *#write your program:while True:    if button_a.is_pressed()==True:        display.show(Image.YES)    if button_b.is_pressed()==True:        display.show(Image.NO)    

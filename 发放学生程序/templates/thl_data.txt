@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>室内温湿度实时监测系统</title> 
+    <style type="text/css">  
+    #center{MARGIN-RIGHT:auto; MARGIN-LEFT:auto; background: #eff7ff; width:600px;
+     height: 400px; vertical-align:central; overflow-y: scroll; overflow-x: scroll}
+    </style>
+</head>
+<body ><meta http-equiv="refresh" content="5">
+    <h1 align="center">室内温湿度实时监测系统</h1>
+    <h2 align="center"><a href="/">刷新</a>   <a href="/plot">生成图表</a></h2>
+    <h2 align="center">监测用户:{{data_now[0]}} </h2>
+    <h2 align="center">温度值:{{data_now[1]}} </h2>
+    <h2 align="center">湿度值:{{data_now[2]}} </h2>
+    <h2 align="center">光线值:{{data_now[3]}} </h2>
+    <h2 align="center">上传时间:{{data_now[4]}} </h2>
+    
+    <div id="center" style="border: 2px solid #96c2f1">
+        检测用户 ---- 温度值 ---- 湿度值 ---- 光线值 ------ 上传时间<br>
+        {% for i in data[::-1]%}
+            {{ i[0] }} ---- {{ i[1] }} ---- {{ i[2] }} ---- {{ i[3] }} ---- {{ i[4] }}<br>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

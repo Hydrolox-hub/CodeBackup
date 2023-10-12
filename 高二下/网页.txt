@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>我的网页</title>
+<script type="text/javascript">
+	function aa(){
+		alert("你好")
+}
+</script>
+</head>
+<body bgcolor="#ffff00" onload="a()">
+<center>
+<h1 style="color:red">我的第一个网页!</h1>
+账号:<input type="text" placeholder="请输入^"><br>
+密码:<input type="password"><br>
+<a href="http://www.baidu.com">百度一下</a><br>
+男生<input type="radio" name="123"><br>
+女生<input type="radio" name="123"><br>
+<input type="checkbox" name="123"><br><input type="checkbox" name="123"><br>
+<img src="C:\Users\Administrator.USER-20160908OO\Desktop\新教材\html制作\图片1.png">
+
+
+
+</center>
+</body>
+</html>
