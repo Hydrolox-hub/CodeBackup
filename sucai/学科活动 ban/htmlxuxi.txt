@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>123</title>
+        <script type="text/javascript">
+            function a()
+            {
+                alert("你好！")
+            }
+        </script>
+    </head>
+
+    <body bgcolor=""  style="background-color: aquamarine;">
+        <center>
+          <h2>学军厕所管理系统</h2>
+          <img border="0" src="C:\Users\Administrator\Desktop.jpg" alt="Pulpit rock" width="304" height="228">
+           <form>
+                账号:<input type="text" placeholder="请输入——"><br>
+                密码:<input type="password"><br>
+                <input type="submit" value="提交"><br>
+            </form>
+            <video src="" wodth="30%" controls>
+        </center>
+    </body>
+</html>

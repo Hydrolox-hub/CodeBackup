@@ -1,0 +1,113 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+       <title>学军厕所管理系统</title>
+      <script type="text/javascript">
+          function a()
+          {
+              alert("你好！")
+          }
+      </script>
+      <style type="text/css">
+      .mask {
+		      font-family:"华文彩云"；
+           background: #00FFFFFF; 
+				background: -webkit-linear-gradient;
+				background: linear-gradient(to right);
+           transition: color 0.5s;
+      }
+	   .p{
+				background: #F3904F; 
+				background: -webkit-linear-gradient
+				background: linear-gradient(to right, #3B4371, #F3904F);
+
+	    }
+      .mask:hover {
+           color: #ffffff;
+       }
+	    body {
+ 	        font-family: "Lato", sans-serif;
+	    }
+
+      .sidenav {
+    	     height: 100%;
+    	     width: 160px;
+  	        position: fixed;
+  	        z-index: 1;
+   	        top: 0;
+ 	        left: 0;
+ 	        background-color: #111;
+	        overflow-x: hidden;
+           padding-top: 20px;
+       }
+
+	    .sidenav a {
+           padding: 6px 8px 6px 16px;
+           text-decoration: none;
+           font-size: 25px;
+           color: #818181;
+           display: block;
+          	transition: color 0.5s;
+       }
+
+	   .sidenav a:hover {
+	        color: #f1f1f1;
+      }
+
+	   .main {
+				font-family:"华文彩云"；
+	        margin-left: 160px; /* 与sidenav的宽度相同 */
+	        font-size: 28px; /* 字体放大，让页面可滚动 */
+	        padding: 0px 10px;
+	   }
+
+	   @media screen and (max-height: 450px) {
+	        .sidenav {padding-top: 15px;}
+	        .sidenav a {font-size: 18px;}
+	   }
+	.box1 {
+		position: relative;
+		left: 170px;
+		top: -520px;
+		z-index: -10; 
+	}
+	.box2 {
+		position: relative;
+		left: 0px;
+		top: 50px;
+		z-index: -10; 
+	}
+	.box3{
+		position: relative;
+		left: 1220px;
+		top: -1110px;
+		z-index: -10; 
+	}
+    </style>
+    </head>
+
+    <body bgcolor=""  style="background: #F3904F; 
+		background: -webkit-linear-gradient;
+		background: linear-gradient(to right, #3B4371, #F3904F);">
+
+	<div class="main">
+	  <h2></h2>
+ 	  <p>
+
+        <center>
+          <img border="0" src={{ url_for('static', filename='QQ图片20220503223526.gif')}} alt="lff" width="900" height="90">
+	  <img border="0" src={{ url_for('static', filename='1.gif')}} alt="lff" width="900" height="90">
+          <img border="0" src={{ url_for('static', filename='2.gif')}} alt="lff" width="900" height="90">
+	  <img border="0" src={{ url_for('static', filename='3.gif')}} alt="lff" width="900" height="90">
+          <h3><span class="mask"><div style="front-size: 10px">开发者工具</div></span></h3>
+          {% if weiz != None %}
+    		<h1>{{weiz}}</h1>
+	  {% if louc != None %}
+    		<h1>{{louc}}</h1>
+<div class="box2"><img border="0" src={{ url_for('static', filename='QQ图片20220503223621.gif')}} alt="lff" width="900" height="90"></div>
+        </center>
+<div class="box1"> <img border="0" src={{ url_for('static', filename='QQ图片20220503230408.gif')}} alt="lff" width="100" height="570"></p> </div>
+        <div class="box3"> <img border="0" src={{ url_for('static', filename='985UC]1Y3K~O)8P@C1M$`1H.gif')}} alt="lff" width="100" height="570"></p> </div>
+        </center>
+ 	</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>123</title>
+        <script type="text/javascript">
+            function a()
+            {
+                alert("你好！")
+            }
+        </script>
+        <style type="text/css">
+            .mask {
+                background-color: #252525;
+                color: #252525;
+                transition: color 0.5s;
+            }
+
+            .mask:hover {
+                color: #ffffff;
+            }
+	    body {
+ 	        font-family: "Lato", sans-serif;
+	    }
+
+            .sidenav {
+    	        height: 100%;
+    	        width: 160px;
+  	        position: fixed;
+  	        z-index: 1;
+   	        top: 0;
+ 	        left: 0;
+ 	        background-color: #111;
+	        overflow-x: hidden;
+                padding-top: 20px;
+           }
+
+	    .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+           }
+
+	   .sidenav a:hover {
+	        color: #f1f1f1;
+           }
+
+	   .main {
+	        margin-left: 160px; /* 与sidenav的宽度相同 */
+	        font-size: 28px; /* 字体放大，让页面可滚动 */
+	        padding: 0px 10px;
+	   }
+
+	   @media screen and (max-height: 450px) {
+	        .sidenav {padding-top: 15px;}
+	        .sidenav a {font-size: 18px;}
+	   }
+        </style>
+    </head>
+
+    <body bgcolor=""  style="background-color: #252525;">
+	
+	<div class="sidenav">
+	  <a href="#about">关于我们</a>
+	  <a href="#services">服务项目</a>
+	  <a href="#clients">客户信息</a>
+	  <a href="#contact">联系方式</a>
+	</div>
+
+	<div class="main">
+	  <h2>侧栏</h2>
+ 	  <p>此侧边栏为全高（100％）并始终显示。</p>
+  	  <p>向下滚动页面查看结果。</p>
+ 	  ***
+ 	  <p>
+
+        <center>
+          <h2><span class="mask">学军厕所管理系统</h2></span></h2>
+          <img border="0" src={{ url_for('static', filename='OIP-C.jpg')}} alt="lff" width="304" height="228">
+            <video src="" wodth="30%" controls>
+        </center>
+    </body>
+</html>
