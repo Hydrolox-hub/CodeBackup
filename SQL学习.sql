@@ -136,3 +136,16 @@ CREATE TABLE SP
    CONSTRAINT FK_SPJ2 FOREIGN KEY (PNO)  REFERENCES P (PNO)
 )ENGINE=InnoDB;
  
+SELECT classNo,department,className FROM tb_class;
+
+SELECT DISTINCT department FROM tb_class;
+
+SELECT * FROM tb_course;
+
+SELECT studentName,sex,'Age:',YEAR(NOW())-YEAR(birthday) FROM tb_student;
+
+SELECT studentName AS 姓名,sex 性别,YEAR(NOW())-YEAR(birthday) 年龄 FROM tb_student;
+
+SELECT courseName,credit,courseHour FROM tb_course WHERE courseHour>=64;
+
+SELECT studentNo,studentName,native,nation FROM tb_student WHERE nation!='汉' and sex ='男';
