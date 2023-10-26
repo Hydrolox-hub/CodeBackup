@@ -149,3 +149,21 @@ SELECT studentName AS 姓名,sex 性别,YEAR(NOW())-YEAR(birthday) 年龄 FROM tb_stud
 SELECT courseName,credit,courseHour FROM tb_course WHERE courseHour>=64;
 
 SELECT studentNo,studentName,native,nation FROM tb_student WHERE nation!='汉' and sex ='男';
+
+SELECT studentName,sex,birthday FROM tb_student WHERE birthday BETWEEN '1996-01-01'AND'1996-12-31';
+
+SELECT studentName,sex,birthday FROM tb_student WHERE birthday NOT BETWEEN '1996-01-01'AND'1996-12-31';
+
+SELECT * FROM tb_student WHERE native IN ('北京','天津','上海');
+
+SELECT * FROM tb_student WHERE native NOT IN ('北京','天津','上海');
+
+SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  '李%';
+
+SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName NOT LIKE  '李%';
+
+SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  '%明%';
+
+SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  '李__';
+
+SELECT * FROM tb_course WHERE courseName LIKE '%#_%'ESCAPE '#';
