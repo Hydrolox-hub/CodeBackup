@@ -167,3 +167,37 @@ SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  '%Ã
 SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  'Àî__';
 
 SELECT * FROM tb_course WHERE courseName LIKE '%#_%'ESCAPE '#';
+
+SELECT * FROM tb_course WHERE courseName REGEXP 'ÏµÍ³';
+
+SELECT * FROM tb_course WHERE courseName LIKE '%ÏµÍ³%';
+
+SELECT * FROM tb_course WHERE courseName REGEXP '¹ÜÀí|ÐÅÏ¢|ÏµÍ³';
+
+SELECT * FROM tb_course WHERE priorCourse IS NULL;
+
+SELECT * FROM tb_course WHERE term=2 AND courseHour>=32;
+
+SELECT studentName,native,nation FROM tb_student WHERE (native='±±¾©' OR native='ºþÄÏ')AND nation != 'ºº' AND sex='ÄÐ';
+
+SELECT studentName,birthday,native FROM tb_student ORDER BY birthday DESC; 
+
+SELECT * FROM tb_score WHERE score>90 ORDER BY courseNo,score DESC;
+
+SELECT studentNo,courseNo,score FROM tb_score ORDER BY score DESC LIMIT 4,6;
+
+SELECT COUNT(*) FROM tb_course;
+
+SELECT COUNT(DISTINCT studentNo)FROM tb_score;
+
+SELECT AVG(score),MAX(score)FROM tb_score WHERE courseNo='21004';
+
+SELECT courseNo,COUNT(studentNo) FROM tb_score GROUP BY courseNo;
+
+SELECT studentNo,COUNT(*)Ñ¡¿ÎÃÅÊý,AVG(score)Æ½¾ù·Ö,MAX(score)×î¸ß·Ö FROM tb_score GROUP BY studentNo;
+
+SELECT studentNo,COUNT(*)Ñ¡¿ÎÃÅÊý,AVG(score)Æ½¾ù·Ö,MAX(score)×î¸ß·Ö FROM tb_score GROUP BY studentNo HAVING AVG(score)>=90;
+
+SELECT studentNo,COUNT(*)¿Î³ÌÊý FROM tb_score WHERE score>88 GROUP BY studentNo HAVING COUNT(*)>=2;
+
+SELECT AVG(score)Æ½¾ù·Ö FROM tb_score HAVING AVG(score)>=80;
