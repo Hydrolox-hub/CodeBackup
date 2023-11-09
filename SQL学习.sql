@@ -136,68 +136,196 @@ CREATE TABLE SP
    CONSTRAINT FK_SPJ2 FOREIGN KEY (PNO)  REFERENCES P (PNO)
 )ENGINE=InnoDB;
  
-SELECT classNo,department,className FROM tb_class;
+SELECT classNo,department,className 
+FROM tb_class;
 
-SELECT DISTINCT department FROM tb_class;
+SELECT DISTINCT department 
+FROM tb_class;
 
-SELECT * FROM tb_course;
+SELECT * 
+FROM tb_course;
 
-SELECT studentName,sex,'Age:',YEAR(NOW())-YEAR(birthday) FROM tb_student;
+SELECT studentName,sex,'Age:',YEAR(NOW())-YEAR(birthday) 
+FROM tb_student;
 
-SELECT studentName AS 姓名,sex 性别,YEAR(NOW())-YEAR(birthday) 年龄 FROM tb_student;
+SELECT studentName AS 姓名,sex 性别,YEAR(NOW())-YEAR(birthday) 年龄 
+FROM tb_student;
 
-SELECT courseName,credit,courseHour FROM tb_course WHERE courseHour>=64;
+SELECT courseName,credit,courseHour 
+FROM tb_course 
+WHERE courseHour>=64;
 
-SELECT studentNo,studentName,native,nation FROM tb_student WHERE nation!='汉' and sex ='男';
+SELECT studentNo,studentName,native,nation 
+FROM tb_student 
+WHERE nation!='汉' and sex ='男';
 
-SELECT studentName,sex,birthday FROM tb_student WHERE birthday BETWEEN '1996-01-01'AND'1996-12-31';
+SELECT studentName,sex,birthday 
+FROM tb_student 
+WHERE birthday BETWEEN '1996-01-01'AND'1996-12-31';
 
-SELECT studentName,sex,birthday FROM tb_student WHERE birthday NOT BETWEEN '1996-01-01'AND'1996-12-31';
+SELECT studentName,sex,birthday 
+FROM tb_student 
+WHERE birthday NOT BETWEEN '1996-01-01'AND'1996-12-31';
 
-SELECT * FROM tb_student WHERE native IN ('北京','天津','上海');
+SELECT * 
+FROM tb_student 
+WHERE native IN ('北京','天津','上海');
 
-SELECT * FROM tb_student WHERE native NOT IN ('北京','天津','上海');
+SELECT * 
+FROM tb_student 
+WHERE native NOT IN ('北京','天津','上海');
 
-SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  '李%';
+SELECT studentNo,studentName,classNo 
+FROM tb_student 
+WHERE studentName LIKE  '李%';
 
-SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName NOT LIKE  '李%';
+SELECT studentNo,studentName,classNo 
+FROM tb_student 
+WHERE studentName NOT LIKE  '李%';
 
-SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  '%明%';
+SELECT studentNo,studentName,classNo 
+FROM tb_student 
+WHERE studentName LIKE  '%明%';
 
-SELECT studentNo,studentName,classNo FROM tb_student WHERE studentName LIKE  '李__';
+SELECT studentNo,studentName,classNo 
+FROM tb_student 
+WHERE studentName LIKE  '李__';
 
-SELECT * FROM tb_course WHERE courseName LIKE '%#_%'ESCAPE '#';
+SELECT * 
+FROM tb_course 
+WHERE courseName LIKE '%#_%'ESCAPE '#';
 
-SELECT * FROM tb_course WHERE courseName REGEXP '系统';
+SELECT * 
+FROM tb_course 
+WHERE courseName REGEXP '系统';
 
-SELECT * FROM tb_course WHERE courseName LIKE '%系统%';
+SELECT * 
+FROM tb_course 
+WHERE courseName LIKE '%系统%';
 
-SELECT * FROM tb_course WHERE courseName REGEXP '管理|信息|系统';
+SELECT * 
+FROM tb_course 
+WHERE courseName REGEXP '管理|信息|系统';
 
-SELECT * FROM tb_course WHERE priorCourse IS NULL;
+SELECT * 
+FROM tb_course 
+WHERE priorCourse IS NULL;
 
-SELECT * FROM tb_course WHERE term=2 AND courseHour>=32;
+SELECT * 
+FROM tb_course 
+WHERE term=2 AND courseHour>=32;
 
-SELECT studentName,native,nation FROM tb_student WHERE (native='北京' OR native='湖南')AND nation != '汉' AND sex='男';
+SELECT studentName,native,nation 
+FROM tb_student 
+WHERE (native='北京' OR native='湖南')AND nation != '汉' AND sex='男';
 
-SELECT studentName,birthday,native FROM tb_student ORDER BY birthday DESC; 
+SELECT studentName,birthday,native 
+FROM tb_student 
+ORDER BY birthday DESC; 
 
-SELECT * FROM tb_score WHERE score>90 ORDER BY courseNo,score DESC;
+SELECT * 
+FROM tb_score 
+WHERE score>90 
+ORDER BY courseNo,score DESC;
 
-SELECT studentNo,courseNo,score FROM tb_score ORDER BY score DESC LIMIT 4,6;
+SELECT studentNo,courseNo,score 
+FROM tb_score 
+ORDER BY score DESC LIMIT 4,6;
 
-SELECT COUNT(*) FROM tb_course;
+SELECT COUNT(*) 
+FROM tb_course;
 
-SELECT COUNT(DISTINCT studentNo)FROM tb_score;
+SELECT COUNT(DISTINCT studentNo)
+FROM tb_score;
 
-SELECT AVG(score),MAX(score)FROM tb_score WHERE courseNo='21004';
+SELECT AVG(score),MAX(score)
+FROM tb_score 
+WHERE courseNo='21004';
 
-SELECT courseNo,COUNT(studentNo) FROM tb_score GROUP BY courseNo;
+SELECT courseNo,COUNT(studentNo) 
+FROM tb_score 
+GROUP BY courseNo;
 
-SELECT studentNo,COUNT(*)选课门数,AVG(score)平均分,MAX(score)最高分 FROM tb_score GROUP BY studentNo;
+SELECT studentNo,COUNT(*)选课门数,AVG(score)平均分,MAX(score)最高分 
+FROM tb_score 
+GROUP BY studentNo;
 
-SELECT studentNo,COUNT(*)选课门数,AVG(score)平均分,MAX(score)最高分 FROM tb_score GROUP BY studentNo HAVING AVG(score)>=90;
+SELECT studentNo,COUNT(*)选课门数,AVG(score)平均分,MAX(score)最高分 
+FROM tb_score 
+GROUP BY studentNo 
+HAVING AVG(score)>=90;
 
-SELECT studentNo,COUNT(*)课程数 FROM tb_score WHERE score>88 GROUP BY studentNo HAVING COUNT(*)>=2;
+SELECT studentNo,COUNT(*)课程数 
+FROM tb_score 
+WHERE score>88 
+GROUP BY studentNo 
+HAVING COUNT(*)>=2;
 
-SELECT AVG(score)平均分 FROM tb_score HAVING AVG(score)>=80;
+SELECT AVG(score)平均分 
+FROM tb_score 
+HAVING AVG(score)>=80;
+
+SELECT * 
+FROM tb_student,tb_score;
+
+SELECT tb_student.*,tb_score.* 
+FROM tb_student,tb_score 
+WHERE tb_student.studentNo=tb_score.studentNo;
+
+SELECT studentNo,studentName,native,tb_student.classNo,className 
+FROM tb_student,tb_class 
+WHERE tb_student.classNo=tb_class.classNo AND department='会计学院';
+
+SELECT a.studentNo,studentName,score
+FROM tb_student a,tb_course b,tb_score c
+WHERE a.studentNo=c.studentNo AND b.courseNo=c.courseNo
+AND courseName='程序设计';
+
+SELECT b.courseNo,courseName,score
+FROM tb_student a,tb_course b,tb_score c
+WHERE a.studentNo=c.studentNo AND b.courseNo=c.courseNo
+AND studentName='江山';
+
+SELECT c1.*
+FROM tb_course c1,tb_course c2 
+WHERE c1.credit=c2.credit AND c2.courseName='数据库';
+
+SELECT a.studentNo,studentName,sex,classNo,courseNo,score 
+FROM tb_student a LEFT OUTER JOIN tb_score b
+ON a.studentNo=b.studentNo;
+
+SELECT a.studentNo,studentName,sex,classNo,courseNo,score 
+FROM tb_student a RIGHT OUTER JOIN tb_score b
+ON a.studentNo=b.studentNo;
+
+SELECT studentName
+FROM tb_student
+WHERE tb_student.studentNo IN(SELECT DISTINCT tb_score.studentNo FROM tb_score);
+
+SELECT DISTINCT studentName
+FROM tb_student,tb_score
+WHERE tb_student.studentNo=tb_score.studentNo;
+
+SELECT studentName
+FROM tb_student
+WHERE tb_student.studentNo NOT IN (SELECT DISTINCT tb_score.studentNo FROM tb_score);
+
+SELECT c1.*
+FROM tb_student c1,tb_student c2 
+WHERE c1.native=c2.native AND c2.studentName='王一敏';
+
+SELECT c1.*
+FROM tb_student c1,tb_student c2 
+WHERE c1.classNo=c2.classNo AND c2.studentName='李明';
+
+SELECT c1.*
+FROM tb_course c1,tb_course c2 
+WHERE c1.priorCourse=c2.priorCourse AND c2.courseName='程序设计';
+
+SELECT c1.*
+FROM tb_student c1,tb_student c2 
+WHERE YEAR(c1.birthday)=YEAR(c2.birthday) AND c2.studentName='王林';
+
+SELECT c1.*
+FROM tb_student c1,tb_student c2 
+WHERE c1.nation=c2.nation AND c2.studentName='张晓勇';
