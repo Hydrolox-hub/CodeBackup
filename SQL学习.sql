@@ -329,3 +329,132 @@ WHERE YEAR(c1.birthday)=YEAR(c2.birthday) AND c2.studentName='王林';
 SELECT c1.*
 FROM tb_student c1,tb_student c2 
 WHERE c1.nation=c2.nation AND c2.studentName='张晓勇';
+
+SELECT studentNo,studentName
+FROM tb_student
+WHERE classNo =
+(SELECT classNo FROM tb_class
+WHERE className='计算机14-1班');
+
+SELECT studentNo,studentName
+FROM tb_student c1,tb_class c2 
+WHERE c1.classNo=c2.classNo AND c2.className='计算机14-1班';
+
+SELECT studentNo,studentName,classNo
+FROM tb_student s1 
+WHERE classNo=
+(SELECT classNo FROM tb_student s2
+WHERE studentName='刘涛') AND studentName!= '刘涛';
+
+SELECT s1.studentNo,s1.studentName,s1.classNo
+FROM tb_student s1,tb_student s2
+WHERE s1.classNo=s2.classNo AND s2.studentName = '刘涛' AND s1.studentName!= '刘涛';
+
+SELECT studentName,YEAR(birthday)
+FROM tb_student
+WHERE sex='男'AND YEAR(birthday)>ANY(
+   SELECT YEAR(birthday) FROM tb_student WHERE sex='女'
+);
+
+SELECT studentName,YEAR(birthday)
+FROM tb_student
+WHERE sex='男'AND YEAR(birthday)> (
+    SELECT MIN(YEAR(birthday)) FROM tb_student WHERE sex = '女'
+);
+
+SELECT studentName,YEAR(birthday)
+FROM tb_student
+WHERE sex='男'AND YEAR(birthday)>ALL(
+   SELECT YEAR(birthday) FROM tb_student WHERE sex='女'
+);
+
+SELECT studentName,YEAR(birthday)
+FROM tb_student
+WHERE sex='男'AND YEAR(birthday)> (
+    SELECT MAX(YEAR(birthday)) FROM tb_student WHERE sex = '女'
+);
+
+SELECT studentName
+FROM tb_student a 
+WHERE EXISTS
+(
+   SELECT * FROM tb_score b 
+   WHERE a.studentNo=b.studentNo AND courseNo='31002' 
+);
+
+SELECT studentName
+FROM tb_student 
+WHERE studentNo IN (
+   SELECT studentNo
+   FROM tb_score
+   WHERE courseNo='31002'
+);
+
+SELECT studentName
+FROM tb_student a 
+WHERE NOT EXISTS
+(
+   SELECT * FROM tb_score b 
+   WHERE a.studentNo=b.studentNo AND courseNo='31002' 
+);
+
+SELECT studentName
+FROM tb_student 
+WHERE studentNo NOT IN (
+   SELECT studentNo
+   FROM tb_score
+   WHERE courseNo='31002'
+);
+
+SELECT studentName
+FROM tb_student x
+WHERE NOT EXISTS(
+   SELECT * FROM tb_course c 
+   WHERE NOT EXISTS(
+      SELECT * FROM tb_score
+      WHERE studentNo=x.studentNo
+      AND courseNo=c.courseNo
+   )
+);
+
+SELECT studentName
+FROM tb_student a 
+WHERE EXISTS
+(
+   SELECT * FROM tb_score b 
+   WHERE a.studentNo=b.studentNo AND b.score >= 85
+);
+
+SELECT studentNo
+FROM tb_score,tb_course
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='管理学'
+UNION
+SELECT studentNo
+FROM tb_score,tb_course
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='计算机基础';
+
+SELECT studentNo
+FROM tb_score,tb_course
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='管理学'
+UNION ALL
+SELECT studentNo
+FROM tb_score,tb_course
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='计算机基础';
+
+SELECT studentNo
+FROM tb_score,tb_course
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='计算机基础'
+AND studentNo IN (
+   SELECT studentNo
+   FROM tb_score,tb_course
+   WHERE tb_score.courseNo=tb_course.courseNo AND courseName='管理学'
+);
+
+SELECT studentNo
+FROM tb_score,tb_course
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='计算机基础'
+AND studentNo NOT IN (
+   SELECT studentNo
+   FROM tb_score,tb_course
+   WHERE tb_score.courseNo=tb_course.courseNo AND courseName='管理学'
+);
