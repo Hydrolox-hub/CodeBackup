@@ -572,3 +572,51 @@ WHERE NOT EXISTS
       WHERE S.SNO=SP.SNO AND SP.PNO=P.PNO
    )
 );
+
+DROP TABLE db_school.tb_student1;
+
+ CREATE TABLE tb_student1
+ (
+    studentNo CHAR(10) PRIMARY KEY,
+    studentName VARCHAR(20)NOT NULL,
+    sex CHAR(2) NOT NULL,
+    birthday DATE,
+    native VARCHAR(20),
+    nation VARCHAR(10) DEFAULT'汉',
+    classNo CHAR(6)
+ ) ENGINE=InnoDB;
+
+ INSERT INTO db_school.tb_student1(studentNo,studentName,sex,birthday,native,nation,classNo)
+ SELECT studentNo,studentName,sex,birthday,native,nation,classNo
+ FROM tb_student;
+
+ INSERT INTO tb_student1
+ VALUES('20231030032','黄蒋逸','男','2004-10-29','浙江','汉','CS1401');
+
+ REPLACE INTO tb_student1(studentNo,studentName,sex,birthday,native,nation,classNo)
+ VALUES ('2013110101','张珊','女','1997-01-01','云南','汉','AC1301');
+
+ INSERT INTO tb_student1(studentNo,studentName,sex)
+ VALUES('2014310104','陈卓卓','女'),('2014310105','马丽','女'),('2014310106','许江','男');
+
+ UPDATE db_school.tb_student1
+ SET studentName = '张三',native = '湖北',nation = '汉'
+ WHERE studentNo='2014210101';
+
+ UPDATE tb_score
+ SET score=score*1.02;
+
+ UPDATE tb_course
+ SET courseHour=courseHour+16;
+
+ DELETE FROM tb_student1 WHERE studentNo='2014310104';
+
+  DELETE FROM tb_student1 WHERE studentNo
+  NOT IN
+   (
+     SELECT studentNo FROM tb_score
+   );
+
+DELETE FROM db_school.tb_student1;
+
+TRUNCATE db_school.tb_class;
