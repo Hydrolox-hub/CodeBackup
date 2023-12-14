@@ -1,5 +1,5 @@
 -- Active: 1695730306959@@127.0.0.1@3308@db_school
-#´´½¨Êý¾Ý¿â 
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ 
  CREATE DATABASE db_school
  DEFAULT CHARACTER SET GB2312
  DEFAULT COLLATE GB2312_chinese_ci;
@@ -39,7 +39,7 @@
     sex CHAR(2),
     birthday DATE,
     native VARCHAR(20),
-    nation VARCHAR(10) DEFAULT'ºº',
+    nation VARCHAR(10) DEFAULT'ï¿½ï¿½',
     classNo CHAR(6)
  ) ENGINE=InnoDB;
 
@@ -51,7 +51,7 @@
     sex CHAR(2) NOT NULL,
     birthday DATE,
     native VARCHAR(20),
-    nation VARCHAR(10) DEFAULT'ºº',
+    nation VARCHAR(10) DEFAULT'ï¿½ï¿½',
     classNo CHAR(6),
     CONSTRAINT PK_student PRIMARY KEY(studentNo)
  ) ENGINE=InnoDB;
@@ -148,7 +148,7 @@ FROM tb_course;
 SELECT studentName,sex,'Age:',YEAR(NOW())-YEAR(birthday) 
 FROM tb_student;
 
-SELECT studentName AS ÐÕÃû,sex ÐÔ±ð,YEAR(NOW())-YEAR(birthday) ÄêÁä 
+SELECT studentName AS ï¿½ï¿½ï¿½ï¿½,sex ï¿½Ô±ï¿½,YEAR(NOW())-YEAR(birthday) ï¿½ï¿½ï¿½ï¿½ 
 FROM tb_student;
 
 SELECT courseName,credit,courseHour 
@@ -157,7 +157,7 @@ WHERE courseHour>=64;
 
 SELECT studentNo,studentName,native,nation 
 FROM tb_student 
-WHERE nation!='ºº' and sex ='ÄÐ';
+WHERE nation!='ï¿½ï¿½' and sex ='ï¿½ï¿½';
 
 SELECT studentName,sex,birthday 
 FROM tb_student 
@@ -169,27 +169,27 @@ WHERE birthday NOT BETWEEN '1996-01-01'AND'1996-12-31';
 
 SELECT * 
 FROM tb_student 
-WHERE native IN ('±±¾©','Ìì½ò','ÉÏº£');
+WHERE native IN ('ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½','ï¿½Ïºï¿½');
 
 SELECT * 
 FROM tb_student 
-WHERE native NOT IN ('±±¾©','Ìì½ò','ÉÏº£');
+WHERE native NOT IN ('ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½','ï¿½Ïºï¿½');
 
 SELECT studentNo,studentName,classNo 
 FROM tb_student 
-WHERE studentName LIKE  'Àî%';
+WHERE studentName LIKE  'ï¿½ï¿½%';
 
 SELECT studentNo,studentName,classNo 
 FROM tb_student 
-WHERE studentName NOT LIKE  'Àî%';
+WHERE studentName NOT LIKE  'ï¿½ï¿½%';
 
 SELECT studentNo,studentName,classNo 
 FROM tb_student 
-WHERE studentName LIKE  '%Ã÷%';
+WHERE studentName LIKE  '%ï¿½ï¿½%';
 
 SELECT studentNo,studentName,classNo 
 FROM tb_student 
-WHERE studentName LIKE  'Àî__';
+WHERE studentName LIKE  'ï¿½ï¿½__';
 
 SELECT * 
 FROM tb_course 
@@ -205,7 +205,7 @@ WHERE courseName LIKE '%ÏµÍ³%';
 
 SELECT * 
 FROM tb_course 
-WHERE courseName REGEXP '¹ÜÀí|ÐÅÏ¢|ÏµÍ³';
+WHERE courseName REGEXP 'ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½Ï¢|ÏµÍ³';
 
 SELECT * 
 FROM tb_course 
@@ -217,7 +217,7 @@ WHERE term=2 AND courseHour>=32;
 
 SELECT studentName,native,nation 
 FROM tb_student 
-WHERE (native='±±¾©' OR native='ºþÄÏ')AND nation != 'ºº' AND sex='ÄÐ';
+WHERE (native='ï¿½ï¿½ï¿½ï¿½' OR native='ï¿½ï¿½ï¿½ï¿½')AND nation != 'ï¿½ï¿½' AND sex='ï¿½ï¿½';
 
 SELECT studentName,birthday,native 
 FROM tb_student 
@@ -246,22 +246,22 @@ SELECT courseNo,COUNT(studentNo)
 FROM tb_score 
 GROUP BY courseNo;
 
-SELECT studentNo,COUNT(*)Ñ¡¿ÎÃÅÊý,AVG(score)Æ½¾ù·Ö,MAX(score)×î¸ß·Ö 
+SELECT studentNo,COUNT(*)Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,AVG(score)Æ½ï¿½ï¿½ï¿½ï¿½,MAX(score)ï¿½ï¿½ß·ï¿½ 
 FROM tb_score 
 GROUP BY studentNo;
 
-SELECT studentNo,COUNT(*)Ñ¡¿ÎÃÅÊý,AVG(score)Æ½¾ù·Ö,MAX(score)×î¸ß·Ö 
+SELECT studentNo,COUNT(*)Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,AVG(score)Æ½ï¿½ï¿½ï¿½ï¿½,MAX(score)ï¿½ï¿½ß·ï¿½ 
 FROM tb_score 
 GROUP BY studentNo 
 HAVING AVG(score)>=90;
 
-SELECT studentNo,COUNT(*)¿Î³ÌÊý 
+SELECT studentNo,COUNT(*)ï¿½Î³ï¿½ï¿½ï¿½ 
 FROM tb_score 
 WHERE score>88 
 GROUP BY studentNo 
 HAVING COUNT(*)>=2;
 
-SELECT AVG(score)Æ½¾ù·Ö 
+SELECT AVG(score)Æ½ï¿½ï¿½ï¿½ï¿½ 
 FROM tb_score 
 HAVING AVG(score)>=80;
 
@@ -274,21 +274,21 @@ WHERE tb_student.studentNo=tb_score.studentNo;
 
 SELECT studentNo,studentName,native,tb_student.classNo,className 
 FROM tb_student,tb_class 
-WHERE tb_student.classNo=tb_class.classNo AND department='»á¼ÆÑ§Ôº';
+WHERE tb_student.classNo=tb_class.classNo AND department='ï¿½ï¿½ï¿½Ñ§Ôº';
 
 SELECT a.studentNo,studentName,score
 FROM tb_student a,tb_course b,tb_score c
 WHERE a.studentNo=c.studentNo AND b.courseNo=c.courseNo
-AND courseName='³ÌÐòÉè¼Æ';
+AND courseName='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 SELECT b.courseNo,courseName,score
 FROM tb_student a,tb_course b,tb_score c
 WHERE a.studentNo=c.studentNo AND b.courseNo=c.courseNo
-AND studentName='½­É½';
+AND studentName='ï¿½ï¿½É½';
 
 SELECT c1.*
 FROM tb_course c1,tb_course c2 
-WHERE c1.credit=c2.credit AND c2.courseName='Êý¾Ý¿â';
+WHERE c1.credit=c2.credit AND c2.courseName='ï¿½ï¿½ï¿½Ý¿ï¿½';
 
 SELECT a.studentNo,studentName,sex,classNo,courseNo,score 
 FROM tb_student a LEFT OUTER JOIN tb_score b
@@ -312,65 +312,65 @@ WHERE tb_student.studentNo NOT IN (SELECT DISTINCT tb_score.studentNo FROM tb_sc
 
 SELECT c1.*
 FROM tb_student c1,tb_student c2 
-WHERE c1.native=c2.native AND c2.studentName='ÍõÒ»Ãô';
+WHERE c1.native=c2.native AND c2.studentName='ï¿½ï¿½Ò»ï¿½ï¿½';
 
 SELECT c1.*
 FROM tb_student c1,tb_student c2 
-WHERE c1.classNo=c2.classNo AND c2.studentName='ÀîÃ÷';
+WHERE c1.classNo=c2.classNo AND c2.studentName='ï¿½ï¿½ï¿½ï¿½';
 
 SELECT c1.*
 FROM tb_course c1,tb_course c2 
-WHERE c1.priorCourse=c2.priorCourse AND c2.courseName='³ÌÐòÉè¼Æ';
+WHERE c1.priorCourse=c2.priorCourse AND c2.courseName='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 SELECT c1.*
 FROM tb_student c1,tb_student c2 
-WHERE YEAR(c1.birthday)=YEAR(c2.birthday) AND c2.studentName='ÍõÁÖ';
+WHERE YEAR(c1.birthday)=YEAR(c2.birthday) AND c2.studentName='ï¿½ï¿½ï¿½ï¿½';
 
 SELECT c1.*
 FROM tb_student c1,tb_student c2 
-WHERE c1.nation=c2.nation AND c2.studentName='ÕÅÏþÓÂ';
+WHERE c1.nation=c2.nation AND c2.studentName='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 SELECT studentNo,studentName
 FROM tb_student
 WHERE classNo =
 (SELECT classNo FROM tb_class
-WHERE className='¼ÆËã»ú14-1°à');
+WHERE className='ï¿½ï¿½ï¿½ï¿½ï¿½14-1ï¿½ï¿½');
 
 SELECT studentNo,studentName
 FROM tb_student c1,tb_class c2 
-WHERE c1.classNo=c2.classNo AND c2.className='¼ÆËã»ú14-1°à';
+WHERE c1.classNo=c2.classNo AND c2.className='ï¿½ï¿½ï¿½ï¿½ï¿½14-1ï¿½ï¿½';
 
 SELECT studentNo,studentName,classNo
 FROM tb_student s1 
 WHERE classNo=
 (SELECT classNo FROM tb_student s2
-WHERE studentName='ÁõÌÎ') AND studentName!= 'ÁõÌÎ';
+WHERE studentName='ï¿½ï¿½ï¿½ï¿½') AND studentName!= 'ï¿½ï¿½ï¿½ï¿½';
 
 SELECT s1.studentNo,s1.studentName,s1.classNo
 FROM tb_student s1,tb_student s2
-WHERE s1.classNo=s2.classNo AND s2.studentName = 'ÁõÌÎ' AND s1.studentName!= 'ÁõÌÎ';
+WHERE s1.classNo=s2.classNo AND s2.studentName = 'ï¿½ï¿½ï¿½ï¿½' AND s1.studentName!= 'ï¿½ï¿½ï¿½ï¿½';
 
 SELECT studentName,YEAR(birthday)
 FROM tb_student
-WHERE sex='ÄÐ'AND YEAR(birthday)>ANY(
+WHERE sex='ï¿½ï¿½'AND YEAR(birthday)>ANY(
    SELECT YEAR(birthday) FROM tb_student WHERE sex='Å®'
 );
 
 SELECT studentName,YEAR(birthday)
 FROM tb_student
-WHERE sex='ÄÐ'AND YEAR(birthday)> (
+WHERE sex='ï¿½ï¿½'AND YEAR(birthday)> (
     SELECT MIN(YEAR(birthday)) FROM tb_student WHERE sex = 'Å®'
 );
 
 SELECT studentName,YEAR(birthday)
 FROM tb_student
-WHERE sex='ÄÐ'AND YEAR(birthday)>ALL(
+WHERE sex='ï¿½ï¿½'AND YEAR(birthday)>ALL(
    SELECT YEAR(birthday) FROM tb_student WHERE sex='Å®'
 );
 
 SELECT studentName,YEAR(birthday)
 FROM tb_student
-WHERE sex='ÄÐ'AND YEAR(birthday)> (
+WHERE sex='ï¿½ï¿½'AND YEAR(birthday)> (
     SELECT MAX(YEAR(birthday)) FROM tb_student WHERE sex = 'Å®'
 );
 
@@ -427,36 +427,36 @@ WHERE EXISTS
 
 SELECT studentNo
 FROM tb_score,tb_course
-WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¹ÜÀíÑ§'
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½Ñ§'
 UNION
 SELECT studentNo
 FROM tb_score,tb_course
-WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¼ÆËã»ú»ù´¡';
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 SELECT studentNo
 FROM tb_score,tb_course
-WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¹ÜÀíÑ§'
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½Ñ§'
 UNION ALL
 SELECT studentNo
 FROM tb_score,tb_course
-WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¼ÆËã»ú»ù´¡';
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 SELECT studentNo
 FROM tb_score,tb_course
-WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¼ÆËã»ú»ù´¡'
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
 AND studentNo IN (
    SELECT studentNo
    FROM tb_score,tb_course
-   WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¹ÜÀíÑ§'
+   WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½Ñ§'
 );
 
 SELECT studentNo
 FROM tb_score,tb_course
-WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¼ÆËã»ú»ù´¡'
+WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
 AND studentNo NOT IN (
    SELECT studentNo
    FROM tb_score,tb_course
-   WHERE tb_score.courseNo=tb_course.courseNo AND courseName='¹ÜÀíÑ§'
+   WHERE tb_score.courseNo=tb_course.courseNo AND courseName='ï¿½ï¿½ï¿½ï¿½Ñ§'
 );
 
 SELECT DISTINCT SNO FROM SP WHERE PNO = 'P1';
@@ -582,7 +582,7 @@ DROP TABLE db_school.tb_student1;
     sex CHAR(2) NOT NULL,
     birthday DATE,
     native VARCHAR(20),
-    nation VARCHAR(10) DEFAULT'ºº',
+    nation VARCHAR(10) DEFAULT'ï¿½ï¿½',
     classNo CHAR(6)
  ) ENGINE=InnoDB;
 
@@ -591,16 +591,16 @@ DROP TABLE db_school.tb_student1;
  FROM tb_student;
 
  INSERT INTO tb_student1
- VALUES('20231030032','»Æ½¯ÒÝ','ÄÐ','2004-10-29','Õã½­','ºº','CS1401');
+ VALUES('20231030032','ï¿½Æ½ï¿½ï¿½ï¿½','ï¿½ï¿½','2004-10-29','ï¿½ã½­','ï¿½ï¿½','CS1401');
 
  REPLACE INTO tb_student1(studentNo,studentName,sex,birthday,native,nation,classNo)
- VALUES ('2013110101','ÕÅÉº','Å®','1997-01-01','ÔÆÄÏ','ºº','AC1301');
+ VALUES ('2013110101','ï¿½ï¿½Éº','Å®','1997-01-01','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½','AC1301');
 
  INSERT INTO tb_student1(studentNo,studentName,sex)
- VALUES('2014310104','³Â×¿×¿','Å®'),('2014310105','ÂíÀö','Å®'),('2014310106','Ðí½­','ÄÐ');
+ VALUES('2014310104','ï¿½ï¿½×¿×¿','Å®'),('2014310105','ï¿½ï¿½ï¿½ï¿½','Å®'),('2014310106','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½');
 
  UPDATE db_school.tb_student1
- SET studentName = 'ÕÅÈý',native = 'ºþ±±',nation = 'ºº'
+ SET studentName = 'ï¿½ï¿½ï¿½ï¿½',native = 'ï¿½ï¿½ï¿½ï¿½',nation = 'ï¿½ï¿½'
  WHERE studentNo='2014210101';
 
  UPDATE tb_score
@@ -620,3 +620,19 @@ DROP TABLE db_school.tb_student1;
 DELETE FROM db_school.tb_student1;
 
 TRUNCATE db_school.tb_class;
+
+UPDATE db_sp.p
+SET WEIGHT=WEIGHT*1.2
+WHERE COLOR='Blue';
+
+DELETE FROM db_sp.s WHERE STATUS IS NULL;
+
+DELETE FROM db_sp.p WHERE NOT EXISTS
+(
+   SELECT * FROM db_sp.sp 
+   WHERE db_sp.p.pno=db_sp.sp.pno
+);
+
+SHOW INDEX FROM tb_student\G;
+
+SHOW INDEX FROM tb_score\G;
